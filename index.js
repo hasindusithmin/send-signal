@@ -88,13 +88,13 @@ app.get('/:signal', async (req, res) => {
         const img_url = (signal === 'long') ? 'https://i.ibb.co/LdLHXTy/buy.jpg' : 'https://i.ibb.co/sCnZXmX/sell.jpg'
         const response = sender(img_url, signal, entries, t1, t2, sl)
         console.log(response);
-        res.status(200).json({ message: response })
+        res.sendStatus(200)
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        res.sendStatus(500)
     }
 })
 
-app.listen(3000)
+// app.listen(3000)
 
 // export 'app'
 module.exports = app
